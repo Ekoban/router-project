@@ -7,6 +7,8 @@ import ViewProfile from '@/components/ViewProfile'
 Vue.use(Router)
 
 export default new Router ({
+    mode: 'history', //enlève le # dans les URL, mais nécessite de paramétrer le serveur de deploiement
+    // cf. avec Firebase plus tard
     routes: [
         {
             path: '/home',

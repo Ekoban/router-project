@@ -13,6 +13,12 @@
                     </router-link>
                 </li>
             </ul>
+            <h2>Navigation Controls</h2>
+            <ul>
+                <li><button @click="goBack">Go Back</button></li>
+                <li><button @click="goForward">Go Forward</button></li>
+                <li><button @click="goHome">Redirect to Home</button></li>
+            </ul>
         </nav>
     </div>
 </template>
@@ -25,7 +31,19 @@ export default {
             userIds: ['1', '2', '3', '4'],
             searchTerm: ''
         }
+    },
+    methods: {
+        goHome() { //l'objet route est différent de router, qui a notre histo de navigation
+            this.$router.push({ name: 'Home' })
+        },
+        goBack() {
+            this.$router.go(-1) //back one stage
+        },
+        goForward() {
+            this.$router.go(+1) //back one stage
+        }
     }
+
 }
 </script>
 
@@ -36,6 +54,10 @@ ul {
 }
 a{
     color: #42b983;
+}
+li {
+    display: inline-block;
+    margin: 10px;
 }
 
 </style>
